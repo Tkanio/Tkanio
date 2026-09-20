@@ -82,6 +82,11 @@
   }
   .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); animation: pulse 2s infinite; }
   @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.4;} }
+  .nav-right { display: flex; align-items: center; gap: 10px; }
+  .lang-toggle { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; font-family: var(--mono); font-size: 12px; }
+  .lang-toggle button { background: none; border: none; color: var(--muted); padding: 5px 11px; cursor: pointer; font-family: inherit; font-size: inherit; line-height: 1.4; transition: background .15s, color .15s; }
+  .lang-toggle button.active { background: var(--accent); color: #0a0b16; font-weight: 700; }
+  .lang-toggle button:not(.active):hover { color: var(--accent); }
   .menu-btn { display: none; background: none; border: 1px solid var(--line); color: var(--text); border-radius: 8px; padding: 7px 10px; font-family: var(--mono); cursor: pointer; }
 
   /* ---------- SECTIONS ---------- */
@@ -219,15 +224,21 @@
   <div class="wrap nav">
     <a class="brand" href="#top">~/<span class="accent">reda-badih</span></a>
     <nav class="nav-links" id="navlinks">
-      <a href="#about">about</a>
-      <a href="#experience">experience</a>
-      <a href="#skills">skills</a>
-      <a href="#projects">projects</a>
-      <a href="#certs">certs</a>
+      <a href="#about" data-fr="à propos">about</a>
+      <a href="#experience" data-fr="expérience">experience</a>
+      <a href="#skills" data-fr="compétences">skills</a>
+      <a href="#projects" data-fr="projets">projects</a>
+      <a href="#certs" data-fr="certifs">certs</a>
       <a href="#contact">contact</a>
-      <span class="pill"><span class="dot"></span>Available</span>
+      <span class="pill" data-fr="<span class='dot'></span>Disponible"><span class="dot"></span>Available</span>
     </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="Menu">[≡]</button>
+    <div class="nav-right">
+      <div class="lang-toggle" id="langToggle" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-label="English">EN</button>
+        <button type="button" data-lang="fr" aria-label="Français">FR</button>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">[≡]</button>
+    </div>
   </div>
 </header>
 
@@ -237,18 +248,18 @@
     <div>
       <div class="kicker">$ whoami</div>
       <h1>Reda Badih</h1>
-      <div class="role">Cloud &amp; DevOps Engineer — Junior</div>
-      <p class="lead">
+      <div class="role" data-fr="Ingénieur Cloud &amp; DevOps — Junior">Cloud &amp; DevOps Engineer — Junior</div>
+      <p class="lead" data-fr="Jeune diplômé d'un Master Systèmes, Réseaux &amp; Cloud. Je conçois et j'automatise des infrastructures fiables : IaC, conteneurisation, CI/CD et observabilité. Formé sur des environnements on-prem exigeants (vSphere, cloud souverain).">
         Recent Master's graduate in Systems, Networks &amp; Cloud. I design and automate
         reliable infrastructure: IaC, containerization, CI/CD and observability.
         Trained on demanding on-prem environments (vSphere, sovereign cloud).
       </p>
       <div class="status-row">
-        <span class="accent">●</span><span>Open to opportunities — Permanent role</span>
+        <span class="accent">●</span><span data-fr="Ouvert aux opportunités — CDI">Open to opportunities — Permanent role</span>
         <span class="accent">↗</span><span>Île-de-France · France</span>
       </div>
       <div class="cta-row">
-        <a class="btn primary" href="mailto:badihreda@outlook.fr">Get in touch</a>
+        <a class="btn primary" href="mailto:badihreda@outlook.fr" data-fr="Me contacter">Get in touch</a>
         <a class="btn" href="https://github.com/Tkanio" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
@@ -267,7 +278,7 @@
         <div><span class="key">location</span>: <span class="val">"Île-de-France"</span></div>
         <div><span class="key">stack</span>:</div>
         <div>&nbsp;&nbsp;- <span class="val">VMWare / Proxmox · Docker · Kubernetes</span></div>
-        <div>&nbsp;&nbsp;- <span class="val">CI / CD· Ansible · Terraform</span></div>
+        <div>&nbsp;&nbsp;- <span class="val">CI / CD · Ansible · Terraform</span></div>
         <div>&nbsp;&nbsp;- <span class="val">Prometheus · Grafana · Python</span></div>
         <div><span class="key">langs</span>: [<span class="val">FR, EN</span>]</div>
         <div><span class="key">status</span>: <span class="val">seeking_permanent_role</span></div>
@@ -280,22 +291,22 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="wrap">
-    <div class="eyebrow"><span class="accent">//</span> about</div>
-    <h2>Who I am</h2>
+    <div class="eyebrow" data-fr="<span class='accent'>//</span> à propos"><span class="accent">//</span> about</div>
+    <h2 data-fr="Qui je suis">Who I am</h2>
     <div class="about-grid">
       <div>
-        <p>
+        <p data-fr="Je suis <strong>Reda</strong>, jeune diplômé d'un <strong>Master Systèmes, Réseaux &amp; Cloud</strong>, après un Bachelor Administration Systèmes &amp; Réseaux et un BTS SIO. J'aime concevoir des infrastructures automatisées et résilientes — celles qui montent en charge sans casser à 3h du matin.">
           I'm <strong>Reda</strong>, a recent graduate with a <strong>Master's in Systems, Networks &amp; Cloud</strong>,
           following a Bachelor's in Systems &amp; Network Administration and a BTS SIO. I love building
           automated, resilient infrastructure — the kind that scales without breaking at 3am.
         </p>
-        <p>
+        <p data-fr="Mon terrain de jeu, c'est l'<strong>Infrastructure as Code</strong>, les pipelines <strong>CI/CD</strong>, les conteneurs et l'observabilité. J'ai notamment conçu une chaîne complète de provisionnement (Terraform → GitLab CI → Kubernetes, sécurisée à chaque étape) sur un environnement <strong>vSphere on-premise</strong> chez un opérateur de cloud souverain.">
           My playground is <strong>Infrastructure as Code</strong>, <strong>CI/CD</strong> pipelines,
           containers and observability. I notably designed a complete provisioning chain
           (Terraform → GitLab CI → Kubernetes, secured at every stage) on an
           <strong>on-premise vSphere</strong> environment at a sovereign cloud operator.
         </p>
-        <p>
+        <p data-fr="Je recherche un <strong>CDI</strong> en Cloud, DevOps, SRE ou ingénierie de production — idéalement au sein d'une <strong>ESN</strong> ou d'une équipe infra qui met l'automatisation au cœur de son travail. Prêt pour la suite.">
           I'm looking for a <strong>permanent role</strong> in Cloud, DevOps, SRE or production
           engineering — ideally within an <strong>IT services company</strong> or an infrastructure
           team that puts automation at the heart of its work. Ready for what's next.
@@ -304,18 +315,18 @@
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-date">2024 — 2026</div>
-          <div class="tl-title">Master's in Systems, Networks &amp; Cloud</div>
-          <div class="tl-sub">Cloud &amp; DevOps specialization</div>
+          <div class="tl-title" data-fr="Master Systèmes, Réseaux &amp; Cloud">Master's in Systems, Networks &amp; Cloud</div>
+          <div class="tl-sub" data-fr="Spécialisation Cloud &amp; DevOps">Cloud &amp; DevOps specialization</div>
         </div>
         <div class="tl-item">
           <div class="tl-date">2023 - 2024</div>
-          <div class="tl-title">Bachelor Administrator of System &amp; Network / DevOps </div>
-          <div class="tl-sub">System &amp; Network Administrator focused on DevOps practice</div>
+          <div class="tl-title" data-fr="Bachelor Administrateur Systèmes &amp; Réseaux / DevOps">Bachelor Administrator of System &amp; Network / DevOps </div>
+          <div class="tl-sub" data-fr="Administrateur systèmes &amp; réseaux orienté pratiques DevOps">System &amp; Network Administrator focused on DevOps practice</div>
         </div>
         <div class="tl-item">
           <div class="tl-date">2021 - 2023</div>
           <div class="tl-title">BTS SIO</div>
-          <div class="tl-sub">Basics of System &amp; Network</div>
+          <div class="tl-sub" data-fr="Fondamentaux systèmes &amp; réseaux">Basics of System &amp; Network</div>
         </div>
       </div>
     </div>
@@ -325,40 +336,40 @@
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="wrap">
-    <div class="eyebrow"><span class="accent">//</span> experience</div>
-    <h2>Work experience</h2>
+    <div class="eyebrow" data-fr="<span class='accent'>//</span> expérience"><span class="accent">//</span> experience</div>
+    <h2 data-fr="Expérience professionnelle">Work experience</h2>
     <div class="exp">
       <div class="exp-card">
         <div class="exp-head">
-          <span class="exp-role">Cloud &amp; DevOps Infrastructure Engineer</span>
+          <span class="exp-role" data-fr="Ingénieur Infrastructure Cloud &amp; DevOps">Cloud &amp; DevOps Infrastructure Engineer</span>
           <span class="exp-co">Cloud Temple</span>
         </div>
-        <div class="exp-meta">Sovereign cloud · SecNumCloud / HDS / C5 · La Défense · On-site</div>
-        <p class="exp-intro">As part of a 6-person IaaS team, covering a broad range of responsibilities:</p>
+        <div class="exp-meta" data-fr="Cloud souverain · SecNumCloud / HDS / C5 · La Défense · Sur site">Sovereign cloud · SecNumCloud / HDS / C5 · La Défense · On-site</div>
+        <p class="exp-intro" data-fr="Au sein d'une équipe IaaS de 6 personnes, avec des responsabilités variées :">As part of a 6-person IaaS team, covering a broad range of responsibilities:</p>
         <ul>
-          <li>Collaborate with the teams to automate the deployment, testing and configuration-management process.</li>
-          <li>Build and maintain CI/CD pipelines to ensure reliable, fast deployments.</li>
-          <li>Contribute to infrastructure design to guarantee consistency and scalability.</li>
-          <li>Work with new technologies to manage containerized and virtualized environments.</li>
-          <li>Embed security practices into CI/CD pipelines and IaC deployments.</li>
-          <li>Integrate acceptance tests and alerting rules to ensure system reliability.</li>
-          <li>Take part in production change management, validating risk levels against service levels (SLAs).</li>
-          <li>Build and maintain a technical knowledge base.</li>
+          <li data-fr="Collaborer avec les équipes pour automatiser le déploiement, les tests et la gestion des configurations.">Collaborate with the teams to automate the deployment, testing and configuration-management process.</li>
+          <li data-fr="Concevoir et maintenir des pipelines CI/CD pour des déploiements fiables et rapides.">Build and maintain CI/CD pipelines to ensure reliable, fast deployments.</li>
+          <li data-fr="Participer à la conception des infrastructures pour garantir cohérence et scalabilité.">Contribute to infrastructure design to guarantee consistency and scalability.</li>
+          <li data-fr="Travailler avec de nouvelles technologies pour gérer les environnements conteneurisés et virtualisés.">Work with new technologies to manage containerized and virtualized environments.</li>
+          <li data-fr="Intégrer les pratiques de sécurité dans les pipelines CI/CD et les déploiements IaC.">Embed security practices into CI/CD pipelines and IaC deployments.</li>
+          <li data-fr="Intégrer des tests d'acceptation et des règles d'alerte pour garantir la fiabilité des systèmes.">Integrate acceptance tests and alerting rules to ensure system reliability.</li>
+          <li data-fr="Participer à la gestion des changements en production, en validant le niveau de risque au regard des niveaux de service (SLA).">Take part in production change management, validating risk levels against service levels (SLAs).</li>
+          <li data-fr="Alimenter et maintenir une base de connaissances techniques.">Build and maintain a technical knowledge base.</li>
         </ul>
       </div>
       <div class="exp-card">
         <div class="exp-head">
-          <span class="exp-role">Systems &amp; Networks Administrator</span>
+          <span class="exp-role" data-fr="Administrateur Systèmes &amp; Réseaux">Systems &amp; Networks Administrator</span>
           <span class="exp-co">Voith</span>
         </div>
-        <div class="exp-meta">Noisy-le-grand · On-site</div>
-        <p class="exp-intro">As part of a 6-person IaaS team, covering a broad range of responsibilities:</p>
+        <div class="exp-meta" data-fr="Noisy-le-Grand · Sur site">Noisy-le-grand · On-site</div>
+        <p class="exp-intro" data-fr="Administration systèmes &amp; réseaux et support aux utilisateurs :">Systems &amp; networks administration and end-user support:</p>
         <ul>
-          <li>Network and System Administration</li>
-          <li>Administration of Windows &amp; Linux server </li>
-          <li>Administration of IAM</li>
-          <li>Administration of Active Directory</li>
-          <li>Support N1 &amp; N2</li>
+          <li data-fr="Administration systèmes et réseaux">Network and System Administration</li>
+          <li data-fr="Administration de serveurs Windows &amp; Linux">Administration of Windows &amp; Linux server </li>
+          <li data-fr="Administration de l'IAM">Administration of IAM</li>
+          <li data-fr="Administration d'Active Directory">Administration of Active Directory</li>
+          <li data-fr="Support N1 &amp; N2">Support N1 &amp; N2</li>
         </ul>
       </div>
     </div>
@@ -368,8 +379,8 @@
 <!-- SKILLS -->
 <section id="skills">
   <div class="wrap">
-    <div class="eyebrow"><span class="accent">//</span> skills</div>
-    <h2>Technologies &amp; tools</h2>
+    <div class="eyebrow" data-fr="<span class='accent'>//</span> compétences"><span class="accent">//</span> skills</div>
+    <h2 data-fr="Technologies &amp; outils">Technologies &amp; tools</h2>
     <div class="skill-groups">
       <div class="skill-card">
         <h3>Cloud &amp; DevOps</h3>
@@ -380,7 +391,7 @@
         </div>
       </div>
       <div class="skill-card">
-        <h3>Observability &amp; security</h3>
+        <h3 data-fr="Observabilité &amp; sécurité">Observability &amp; security</h3>
         <div class="chips">
           <span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Alertmanager</span>
           <span class="chip">Vault</span>
@@ -388,7 +399,7 @@
         </div>
       </div>
       <div class="skill-card">
-        <h3>Infrastructure &amp; systems</h3>
+        <h3 data-fr="Infrastructure &amp; systèmes">Infrastructure &amp; systems</h3>
         <div class="chips">
           <span class="chip">VMware</span><span class="chip">Proxmox</span>
           <span class="chip">Linux</span>
@@ -406,8 +417,8 @@
 
     <div class="bars" id="bars">
       <div class="bar-item"><div class="bar-top"><span>Terraform / IaC</span><span class="pct">65%</span></div><div class="track"><div class="fill" data-w="65"></div></div></div>
-      <div class="bar-item"><div class="bar-top"><span>Linux Administration</span><span class="pct">85%</span></div><div class="track"><div class="fill" data-w="85"></div></div></div>
-      <div class="bar-item"><div class="bar-top"><span>Docker / Containers</span><span class="pct">82%</span></div><div class="track"><div class="fill" data-w="82"></div></div></div>
+      <div class="bar-item"><div class="bar-top"><span data-fr="Administration Linux">Linux Administration</span><span class="pct">85%</span></div><div class="track"><div class="fill" data-w="85"></div></div></div>
+      <div class="bar-item"><div class="bar-top"><span data-fr="Docker / Conteneurs">Docker / Containers</span><span class="pct">82%</span></div><div class="track"><div class="fill" data-w="82"></div></div></div>
       <div class="bar-item"><div class="bar-top"><span>GitLab CI/CD</span><span class="pct">70%</span></div><div class="track"><div class="fill" data-w="70"></div></div></div>
       <div class="bar-item"><div class="bar-top"><span>Prometheus / Grafana</span><span class="pct">80%</span></div><div class="track"><div class="fill" data-w="80"></div></div></div>
       <div class="bar-item"><div class="bar-top"><span>Proxmox / vSphere</span><span class="pct">80%</span></div><div class="track"><div class="fill" data-w="80"></div></div></div>
@@ -416,29 +427,34 @@
     </div>
 
     <div class="langs">
-      <div class="lang"><b>French</b> <span>— Native</span></div>
-      <div class="lang"><b>English</b> <span>— B2 · TOEIC 925</span></div>
+      <div class="lang" data-fr="<b>Français</b> <span>— Natif</span>"><b>French</b> <span>— Native</span></div>
+      <div class="lang" data-fr="<b>Anglais</b> <span>— B2 · TOEIC 925</span>"><b>English</b> <span>— B2 · TOEIC 925</span></div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow" data-fr="<span class='accent'>//</span> projets"><span class="accent">//</span> projects</div>
+    <h2 data-fr="Ce que j'ai construit">What I've built</h2>
+    <div class="proj-grid">
       <div class="proj-card">
         <div class="proj-icon">📊</div>
-        <h3>Monitoring infrastructure — Titannium</h3>
-        <p>Full observability stack on a Proxmox homelab: Python Prometheus exporters (Proxmox VMs &amp; UBIKA WAF), Grafana dashboards deployed via Terraform, Alertmanager alerting over SMTP, and a self-hosted GitLab.</p>
+        <h3 data-fr="Infrastructure de monitoring — Titannium">Monitoring infrastructure — Titannium</h3>
+        <p data-fr="Stack d'observabilité complète sur homelab Proxmox : exporters Prometheus en Python (VMs Proxmox &amp; WAF UBIKA), dashboards Grafana déployés via Terraform, alerting Alertmanager par SMTP et GitLab auto-hébergé.">Full observability stack on a Proxmox homelab: Python Prometheus exporters (Proxmox VMs &amp; UBIKA WAF), Grafana dashboards deployed via Terraform, Alertmanager alerting over SMTP, and a self-hosted GitLab.</p>
         <div class="proj-tags"><span>Prometheus</span><span>Grafana</span><span>Python</span><span>Terraform</span><span>Alertmanager</span></div>
       </div>
       <div class="proj-card">
         <div class="proj-icon">🗄️</div>
-        <h3>Nested ESXi homelab &amp; CEPH cluster</h3>
-        <p>ESXi 8 as a nested VM under QEMU/KVM, plus a CEPH storage cluster across 3 nodes (Rocky Linux): cephadm bootstrap, RBD pools for libvirt, CephFS with systemd automount, and live VM migration.</p>
+        <h3 data-fr="Homelab ESXi imbriqué &amp; cluster CEPH">Nested ESXi homelab &amp; CEPH cluster</h3>
+        <p data-fr="ESXi 8 en VM imbriquée sous QEMU/KVM, et cluster de stockage CEPH sur 3 nœuds (Rocky Linux) : bootstrap cephadm, pools RBD pour libvirt, CephFS en automount systemd et migration de VM à chaud.">ESXi 8 as a nested VM under QEMU/KVM, plus a CEPH storage cluster across 3 nodes (Rocky Linux): cephadm bootstrap, RBD pools for libvirt, CephFS with systemd automount, and live VM migration.</p>
         <div class="proj-tags"><span>ESXi</span><span>CEPH</span><span>KVM / libvirt</span><span>Rocky Linux</span></div>
       </div>
       <div class="proj-card">
         <div class="proj-icon">🐍</div>
-        <h3>UBIKA WAAP Prometheus exporter</h3>
-        <p>A Python exporter exposing UBIKA WAAP WAF gateway metrics in Prometheus format, with dedicated alert rules, an appliance backup script, and a systemd timer.</p>
+        <h3 data-fr="Exporter Prometheus UBIKA WAAP">UBIKA WAAP Prometheus exporter</h3>
+        <p data-fr="Exporter Python exposant les métriques de la passerelle WAF UBIKA WAAP au format Prometheus, avec règles d'alerte dédiées, script de sauvegarde de l'appliance et timer systemd.">A Python exporter exposing UBIKA WAAP WAF gateway metrics in Prometheus format, with dedicated alert rules, an appliance backup script, and a systemd timer.</p>
         <div class="proj-tags"><span>Python</span><span>Prometheus</span><span>WAF</span><span>systemd</span></div>
       </div>
     </div>
@@ -455,19 +471,19 @@
         <div class="ci">⎈</div>
         <h3>CKA</h3>
         <div class="issuer">Certified Kubernetes Administrator</div>
-        <span class="badge prog">In progress</span>
+        <span class="badge prog" data-fr="En cours">In progress</span>
       </div>
       <div class="cert-card">
         <div class="ci">🌍</div>
         <h3>Terraform Associate (004)</h3>
         <div class="issuer">HashiCorp</div>
-        <span class="badge done">In progress</span>
+        <span class="badge done" data-fr="En cours">In progress</span>
       </div>
       <div class="cert-card">
         <div class="ci">📝</div>
         <h3>TOEIC — 925</h3>
-        <div class="issuer">English · B2 level</div>
-        <span class="badge done">Achieved</span>
+        <div class="issuer" data-fr="Anglais · Niveau B2">English · B2 level</div>
+        <span class="badge done" data-fr="Obtenu">Achieved</span>
       </div>
     </div>
   </div>
@@ -477,8 +493,8 @@
 <section id="contact" class="contact">
   <div class="wrap">
     <div class="eyebrow"><span class="accent">//</span> contact</div>
-    <h2>Let's work together</h2>
-    <p>I'm looking for a permanent role in Cloud, DevOps or production engineering. If you're hiring — or just want to talk infra — reach out.</p>
+    <h2 data-fr="Travaillons ensemble">Let's work together</h2>
+    <p data-fr="Je recherche un CDI en Cloud, DevOps ou ingénierie de production. Si vous recrutez — ou si vous voulez simplement parler infra — écrivez-moi.">I'm looking for a permanent role in Cloud, DevOps or production engineering. If you're hiring — or just want to talk infra — reach out.</p>
     <div class="contact-cards">
       <a class="cc" href="mailto:badihreda@outlook.fr">
         <div class="ci">✉️</div><div class="lbl">email</div><div class="val">badihreda@outlook.fr</div>
@@ -487,17 +503,17 @@
         <div class="ci">🐙</div><div class="lbl">github</div><div class="val">github.com/Tkanio</div>
       </a>
       <a class="cc" href="https://www.linkedin.com/in/réda-badih-ba2a92205" target="_blank" rel="noopener">
-        <div class="ci">💼</div><div class="lbl">linkedin</div><div class="val">My LinkedIn</div>
+        <div class="ci">💼</div><div class="lbl">linkedin</div><div class="val" data-fr="Mon LinkedIn">My LinkedIn</div>
       </a>
       <a class="cc" href="#top">
-        <div class="ci">📍</div><div class="lbl">location</div><div class="val">Île-de-France, FR</div>
+        <div class="ci">📍</div><div class="lbl" data-fr="localisation">location</div><div class="val">Île-de-France, FR</div>
       </a>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">Built with ☁️ and a lot of YAML — © 2026 Reda Badih</div>
+  <div class="wrap" data-fr="Conçu avec ☁️ et beaucoup de YAML — © 2026 Reda Badih">Built with ☁️ and a lot of YAML — © 2026 Reda Badih</div>
 </footer>
 
 <script>
@@ -506,6 +522,28 @@
   const navlinks = document.getElementById('navlinks');
   menuBtn.addEventListener('click', () => navlinks.classList.toggle('open'));
   navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+
+  // ---------- i18n : bascule EN / FR ----------
+  const i18nEls = document.querySelectorAll('[data-fr]');
+  i18nEls.forEach(el => { el.dataset.en = el.innerHTML; }); // capture l'anglais (contenu par défaut)
+  const titles = { en: "Reda Badih — Cloud & DevOps Engineer", fr: "Reda Badih — Ingénieur Cloud & DevOps" };
+  const langButtons = document.querySelectorAll('#langToggle button');
+
+  function setLang(lang){
+    if (lang !== 'fr' && lang !== 'en') lang = 'en';
+    i18nEls.forEach(el => { el.innerHTML = el.dataset[lang]; });
+    document.documentElement.lang = lang;
+    document.title = titles[lang];
+    langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    try { localStorage.setItem('lang', lang); } catch(e) {}
+  }
+
+  // langue initiale : choix mémorisé, sinon langue du navigateur, sinon anglais
+  let saved = null;
+  try { saved = localStorage.getItem('lang'); } catch(e) {}
+  const initial = saved || ((navigator.language || 'en').toLowerCase().startsWith('fr') ? 'fr' : 'en');
+  setLang(initial);
+  langButtons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
 
   // animation des barres de compétences au scroll
   const bars = document.querySelectorAll('.fill');
